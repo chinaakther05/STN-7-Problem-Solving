@@ -285,3 +285,36 @@ var threeSum = function(nums) {
     return result;
 };
 
+
+
+// Problem 17 Plus One
+var plusOne = function(digits) {
+    for (let i = digits.length - 1; i >= 0; i--) {
+        if (digits[i] < 9) {
+            digits[i]++;
+            return digits;
+        }
+
+        digits[i] = 0;
+    }
+
+    digits.unshift(1);
+
+    return digits;
+};
+
+
+// Problem 18 Reverse String
+var reverseString = function(s) {
+    let left = 0;
+    let right = s.length - 1;
+
+    while (left < right) {
+        let temp = s[left];
+        s[left] = s[right];
+        s[right] = temp;
+
+        left++;
+        right--;
+    }
+};
