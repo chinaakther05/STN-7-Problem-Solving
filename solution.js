@@ -202,3 +202,86 @@ var containsDuplicate = function(nums) {
 
     return false;
 };
+
+
+
+// Problem 14 Move Zeroes
+var moveZeroes = function(nums) {
+    let position = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== 0) {
+            nums[position] = nums[i];
+            position++;
+        }
+    }
+
+    while (position < nums.length) {
+        nums[position] = 0;
+        position++;
+    }
+};
+
+
+// Problem 15 Merge Sorted Array
+var merge = function(nums1, m, nums2, n) {
+    let i = m - 1;
+    let j = n - 1;
+    let k = m + n - 1;
+
+    while (j >= 0) {
+        if (i >= 0 && nums1[i] > nums2[j]) {
+            nums1[k] = nums1[i];
+            i--;
+        } else {
+            nums1[k] = nums2[j];
+            j--;
+        }
+
+        k--;
+    }
+};
+
+
+// Problem 16 3Sum
+var threeSum = function(nums) {
+    let result = [];
+
+    nums.sort(function(a, b) {
+        return a - b;
+    });
+
+    for (let i = 0; i < nums.length - 2; i++) {
+        if (i > 0 && nums[i] === nums[i - 1]) {
+            continue;
+        }
+
+        let left = i + 1;
+        let right = nums.length - 1;
+
+        while (left < right) {
+            let sum = nums[i] + nums[left] + nums[right];
+
+            if (sum === 0) {
+                result.push([nums[i], nums[left], nums[right]]);
+                left++;
+                right--;
+
+                while (left < right && nums[left] === nums[left - 1]) {
+                    left++;
+                }
+
+                while (left < right && nums[right] === nums[right + 1]) {
+                    right--;
+                }
+            } else if (sum < 0) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+    }
+
+    return result;
+};
+
