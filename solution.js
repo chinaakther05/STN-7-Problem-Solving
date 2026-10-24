@@ -111,13 +111,13 @@ var summation = function(num) {
 
 
 
-// Problem 8: Convert a Boolean to a String
+// Problem 8 Convert a Boolean to a String
 var booleanToString = function(b) {
     return String(b);
 };
 
 
-// Problem 9: Fizz Buzz
+// Problem 9 Fizz Buzz
 var fizzBuzz = function(n) {
     let result = [];
 
@@ -137,7 +137,7 @@ var fizzBuzz = function(n) {
 };
 
 
-// Problem 10: Running Sum of 1D Array
+// Problem 10 Running Sum of 1D Array
 var runningSum = function(nums) {
     let sum = 0;
     let result = [];
@@ -148,4 +148,57 @@ var runningSum = function(nums) {
     }
 
     return result;
+};
+
+
+// Problem 11 Richest Customer Wealth
+var maximumWealth = function(accounts) {
+    let maxWealth = 0;
+
+    for (let i = 0; i < accounts.length; i++) {
+        let total = 0;
+
+        for (let j = 0; j < accounts[i].length; j++) {
+            total += accounts[i][j];
+        }
+
+        if (total > maxWealth) {
+            maxWealth = total;
+        }
+    }
+
+    return maxWealth;
+};
+
+
+// Problem 12 Remove Duplicates from Sorted Array
+var removeDuplicates = function(nums) {
+    if (nums.length === 0) {
+        return 0;
+    }
+
+    let k = 1;
+
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] !== nums[k - 1]) {
+            nums[k] = nums[i];
+            k++;
+        }
+    }
+
+    return k;
+};
+
+
+// Problem 13 Contains Duplicate
+var containsDuplicate = function(nums) {
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] === nums[j]) {
+                return true;
+            }
+        }
+    }
+
+    return false;
 };
