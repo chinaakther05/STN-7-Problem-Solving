@@ -1,5 +1,5 @@
 
-"use strict";
+
 
 // Problem 1 Staircase
 var staircase = function(n) {
@@ -359,3 +359,5 @@ var longestCommonPrefix = function(strs) {
 
     return prefix;
 };
+
+
