@@ -318,3 +318,44 @@ var reverseString = function(s) {
         right--;
     }
 };
+
+
+
+// Problem 19 Length of Last Word
+var lengthOfLastWord = function(s) {
+    let i = s.length - 1;
+    let length = 0;
+
+    while (i >= 0 && s[i] === " ") {
+        i--;
+    }
+
+    while (i >= 0 && s[i] !== " ") {
+        length++;
+        i--;
+    }
+
+    return length;
+};
+
+
+// Problem 20 Longest Common Prefix
+var longestCommonPrefix = function(strs) {
+    if (strs.length === 0) {
+        return "";
+    }
+
+    let prefix = strs[0];
+
+    for (let i = 1; i < strs.length; i++) {
+        while (strs[i].indexOf(prefix) !== 0) {
+            prefix = prefix.slice(0, -1);
+
+            if (prefix === "") {
+                return "";
+            }
+        }
+    }
+
+    return prefix;
+};
